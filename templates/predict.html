@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='stylee.css')}}">
+    
+     <title>Car Loan Annuity Prediction</title>
+     <style>
+        /* Popup container - can be anything you want */
+        .popup {
+          position: relative;
+         
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        
+        /* The actual popup */
+        .popup .popuptext {
+          visibility: hidden;
+          width: 160px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 8px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          left: 50%;
+          margin-left: -80px;
+        }
+        
+        /* Popup arrow */
+        .popup .popuptext::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #555 transparent transparent transparent;
+        }
+        
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+          visibility: visible;
+          -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+        }
+        
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+          from {opacity: 0;} 
+          to {opacity: 1;}
+        }
+        
+        @keyframes fadeIn {
+          from {opacity: 0;}
+          to {opacity:1 ;}
+        }
+        </style>
+       
+
+
+        
+        
+        
+</head>
+<body>
+
+    <h1>Car Loan Annuity Prediction</h1>
+    <p>Details of Car Loans and Rules:</p>
+    <p>Car loans are a type of financial assistance provided for the purchase of vehicles. Here are some rules and requirements:</p>
+    <ul>
+        <li>Minimum Client Income is required for approval.</li>
+        <li>Active Loan and Credit Amount are factors that influence eligibility.</li>
+        <li>Client's education and occupation may also impact the loan approval.</li>
+    </ul>
+
+ </div>
+ <form action="/predict" method="post">
+
+ 
+
+    
+<label for="Client_ID">CLIENT ID:</label>
+<div class="popup" data-field="Client_ID" onclick="myFunction(this)">
+    <input type="text" id="Client_ID" name="Client_ID" placeholder="ID" required><br><br>
+    <span class="popuptext" id="popup_Client_ID">Client Loan application ID</span>
+</div>
+
+<label for="Client_Income">CLIENT INCOME:</label>
+<div class="popup" data-field="1" onclick="myFunction(this)">
+    <input type="text" id="Client_Income" name="Client_Income" placeholder="Rupees" required><br><br>
+    <span class="popuptext" id="popup_1">Client Income in ₹ </span>
+</div>
+
+
+
+
+    <label for="Car_Owned">CAR OWNED:</label>
+    <div class="popup" data-field="2" onclick="myFunction(this)">
+    <input type="text" id="Car_Owned"name="Car_Owned"placeholder="0-1"  required><br><br>
+        <span class="popuptext" id="popup_2">Any Car owned by client before applying for the loan for another car 0 means No and 1 means</span>
+      </div>
+    
+      
+
+        <label for="Bike_Owned">BIKE OWNED:</label>
+      <div class="popup" data-field="3" onclick="myFunction(this)">
+      <input type="text" id="Bike_Owned"name="Bike_Owned"placeholder="Total no.of Bikes"  required><br><br>
+        <span class="popuptext" id="popup_3" >Number of bikes owned</span>
+      </div>
+  
+    <label for="Active_Loan">ACTIVE LOAN:</label>
+<div class="popup" data-field="4" onclick="myFunction(this)">
+      <input type="text" id="Active_Loan" name="Active_Loan" placeholder="0-1" required><br><br>
+        <span class="popuptext" id="popup_4">Any other active loan at the time of aplication of loan (0 means No and 1 means otherwise)</span>
+      </div>
+
+     <label for="Credit_Amount">CREDIT AMOUNT:</label>
+      <div class="popup" data-field="5" onclick="myFunction(this)">
+      <input type="text" id="Credit_Amount" name="Credit_Amount"placeholder="₹"  required><br><br>
+        <span class="popuptext" id="popup_5">Credit amount of the loan in Rupees</span>
+      </div>
+
+<label for="Loan_Annuity">LOAN ANNUITY:</label>
+      <div class="popup" data-field="6" onclick="myFunction(this)">
+      <input type="text" id="Loan_Annuity" name="Loan_Annuity" placeholder="₹" required><br><br>
+        <span class="popuptext" id="popup_6">Loan annuity in Rupees</span>
+      </div>
+    
+ <label for="client_income_type">CLIENT INCOME TYPE:</label>
+      <div class="popup" data-field="7" onclick="myFunction(this)">
+      <input type="text" id="client_income_type" name="client_income_type" placeholder="0-4" required><br><br>
+        <span class="popuptext" id="popup_7">Income types example:passive and active</span>
+      </div>
+    
+    
+
+    <label for="client_education">CLIENT EDUCATION:</label>
+      <div class="popup" data-field="8" onclick="myFunction(this)">
+      <input type="text" id="client_education" name="client_education" placeholder="0-5" required><br><br>
+        <span class="popuptext" id="popup_8">Highest level of education ahieved by client:example"UG,PG,PE,SE,DROPOUT"</span>
+      </div>
+
+   <label for="client_marital_status">CLIENT MARITAL STATUS:</label>
+      <div class="popup" data-field="9" onclick="myFunction(this)">
+      <input type="text" id="client_marital_status" name="client_marital_status" placeholder="1-4" required><br><br>
+
+        <span class="popuptext" id="popup_9">Marital status of client (D- Divorced, S- Single, M- Married, W- Widowed)</span>
+      </div>
+
+<label for="client_gender">CLIENT GENDER:</label>
+      <div class="popup" data-field="10" onclick="myFunction(this)">
+      <input type="text" id="client_gender" name="client_gender"placeholder="1-0" required><br><br>
+        <span class="popuptext" id="popup_10">Gender of the Client: male female</span>
+      </div>
+    
+    <label for="loan_contract_type">LOAN CONTRACT TYPE:</label>
+      <div class="popup" data-field="11" onclick="myFunction(this)">
+      <input type="text" id="loan_contract_type" name="loan_contract_type"placeholder="1-2" required><br><br>
+        <span class="popuptext" id="popup_11">Loan Type (CL- Cash Loan, RL- Revolving Loan)</span>
+      </div>  
+
+    <label for="client_occupation">CLIENT OCCUPATION:</label>
+      <div class="popup" data-field="12" onclick="myFunction(this)">
+      <input type="text" id="client_occupation" name="client_occupation"placeholder="0-18" required><br><br>
+        <span class="popuptext" id="popup_12">Client Occupation type: Salaried,Self-Employed,Student,Retired,Unemployed,Other</span>
+      </div>
+
+    
+    <label for="type_organization">TYPE ORGANIZATION:</label>
+      <div class="popup" data-field="13" onclick="myFunction(this)">
+      <input type="text" id="type_organization" name="type_organization"placeholder="0-15"required><br><br>
+        <span class="popuptext" id="popup_13">Type of organization where client works</span>
+      </div>
+    
+    
+    <button type="submit" class="submit-button" value="submit">Predict Default</button>
+   
+    </form>
+
+  
+</body>
+</html>
+<script>
+        // When the user clicks on div, open the popup
+        function myFunction(inputField) {
+    // Get the unique identifier from the data-field attribute
+    var field = inputField.getAttribute("data-field");
+
+    // Get the pop-up element associated with the input field
+    var popup = document.getElementById("popup_" + field);
+
+    // Toggle the visibility of the pop-up
+    popup.classList.toggle("show");
+}
+
+        </script>
+ 
